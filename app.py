@@ -13,13 +13,13 @@ def index():
 
 @socketio.on('connect')
 def handle_connect():
-    print('Client connected')
+    socketio.emit('welcome', {'message': 'Welcome to the server!'})
 
 
 @socketio.on('message')
 def handle_message(data):
     print('received message: ' + data)
-    emit('response', {'message': 'report ready'})
+    socketio.emit('response', {'message': 'report ready'})
 
 
 if __name__ == '__main__':
