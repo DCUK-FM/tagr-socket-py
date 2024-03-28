@@ -6,6 +6,11 @@ app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 
 
+@app.route('/', methods=['GET'])
+def index():
+    return 'socket server'
+
+
 @socketio.on('connect')
 def handle_connect():
     print('Client connected')
