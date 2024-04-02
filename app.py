@@ -6,11 +6,6 @@ app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app, cors_allowed_origins="*")
 
 
-@app.route('/', methods=['GET'])
-def index():
-    return 'socket server'
-
-
 @socketio.on('connect')
 def handle_connect():
     socketio.emit('welcome', {'message': 'Welcome to the server!'})
